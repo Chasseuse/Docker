@@ -189,3 +189,17 @@ while ($sum <= 10) {
 echo $i;
 
 echo "<br>";
+
+function printStringReturnNumber($string)
+{
+    $number = 1;
+    echo $string;
+    echo "<br>";
+    return $number;
+}
+
+$string = "Hello";
+$my_num = printStringReturnNumber($string);
+echo $my_num;
+
+echo "<br>";
