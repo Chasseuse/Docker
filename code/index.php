@@ -46,3 +46,14 @@ echo "<br>";
 echo 8 ** 2;
 
 echo "<br>";
+
+$my_num = 2;
+$answer = $my_num;
+$answer += 2;
+$answer *= 2;
+$answer -= 2;
+$answer /= 2;
+$answer -= $my_num;
+echo $answer;
+
+echo "<br>";
