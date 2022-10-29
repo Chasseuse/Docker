@@ -263,3 +263,85 @@ $number = 1234;
 sum_Number($number);
 
 echo "<br>";
+
+$arr6 = [];
+$n = 10;
+$string = '';
+for ($i = 1; $i <= $n; $i++) {
+    $string .= 'x';
+    $arr6[] = $string;
+}
+print_r($arr6);
+
+echo "<br>";
+
+function arrayFill($letter, $n)
+{
+    $arr = [];
+    for ($i = 0; $i < $n; $i++) {
+        $arr[$i] = $letter;
+    }
+    return $arr;
+}
+
+print_r(arrayFill("a", 3));
+
+echo "<br>";
+
+$arr_2_dim = [[[1, 2, 3], [4, 5], [6]]];
+$sum = 0;
+
+for ($row = 0; $row < sizeof($arr_2_dim); $row++)
+    for ($subarr = 0; $subarr < sizeof($arr_2_dim[$row]); $subarr++) 
+        for ($i = 0; $i < sizeof($arr_2_dim[$row][$subarr]); $i++)
+            $sum += $arr_2_dim[$row][$subarr][$i];
+echo $sum;
+
+echo "<br>";
+
+$arr8 = [];
+for ($subarr = 0; $subarr < 3; $subarr++) 
+    for ($i = 0; $i < 3; $i++) {
+        if ($subarr == 0)
+            $arr8[$subarr][$i] = $subarr + $i + 1;
+        if ($subarr == 1)
+            $arr8[$subarr][$i] = $subarr + $i + 3;
+        if ($subarr == 2)
+            $arr8[$subarr][$i] = $subarr + $i + 5;
+    }
+print_r($arr8);
+
+echo "<br>";
+
+$arr8 = [2, 5, 3, 9];
+$result = $arr8[0] * $arr8[1] + $arr8[2] * $arr8[3];
+echo $result;
+
+echo "<br>";
+
+$user = ["name" => "Name", "surname" => "Surname", "patronymic" => "Patronymic"];
+echo $user["name"] . " " . $user["surname"] . " " . $user["patronymic"];
+
+echo "<br>";
+
+$date = ["year" => "2022", "month" => "october", "day" => "29"];
+echo $date["year"] . "-" . $date["month"] . "-" . $date["day"];
+
+echo "<br>";
+
+$arr9 = ['a', 'b', 'c', 'd', 'e'];
+echo count($arr9);
+
+echo "<br>";
+
+echo $arr9[sizeof($arr9) - 1];
+
+
+echo "<br>";
+
+echo $arr9[sizeof($arr9) - 2];
+
+echo "<br>";
+
+
+
