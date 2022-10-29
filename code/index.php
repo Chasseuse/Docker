@@ -175,7 +175,6 @@ print_r($arr_del);
 
 echo "<br>";
 
-// второе задание
 $arr5 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 $sum = 0;
@@ -201,5 +200,66 @@ function printStringReturnNumber($string)
 $string = "Hello";
 $my_num = printStringReturnNumber($string);
 echo $my_num;
+
+echo "<br>";
+
+function increaseEnthusiasm($string) {
+    return $string . "!";
+}
+
+echo increaseEnthusiasm("Hello");
+
+echo "<br>";
+
+function repeatThreeTimes($string) {
+    return $string . $string . $string;
+}
+
+echo repeatThreeTimes("Hello");
+
+echo "<br>";
+
+echo increaseEnthusiasm(repeatThreeTimes("Hello"));
+
+echo "<br>";
+
+function cut($string, $count = 10) {
+    return substr($string, 0, $count);
+}
+
+echo cut('Hello', 1);
+echo "<br>";
+echo cut('Hello');
+
+echo "<br>";
+
+function P_rint($arr, $i, $n) {
+    if ($i >= $n)
+        return;
+    echo $arr[$i] . ' ';
+    P_rint($arr, $i + 1, $n);
+}
+
+$arr5 = [1, 2, 3];
+
+P_rint($arr5, 0, count($arr));
+
+echo "<br>";
+
+function sum_Number($n) {
+    $arr = str_split($n);
+    $sum = 0;
+    for ($i = 0; $i < count($arr); $i++) {
+        $sum += $arr[$i];
+    }
+    if ($sum <= 9)
+        echo $sum;
+    else
+        sum_Number($sum);
+}
+
+$number = 1234;
+
+sum_Number($number);
 
 echo "<br>";
