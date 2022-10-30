@@ -343,5 +343,65 @@ echo $arr9[sizeof($arr9) - 2];
 
 echo "<br>";
 
+function func($x, $y) {
+    if ($x + $y > 10)
+        return "true";
+    else
+        return "false";
+}
+
+echo func(2, 1);
+echo "<br>";
+echo func(20, 1);
+
+echo "<br>";
+
+function func_1($x, $y) {
+    if ($x == $y)
+        return "true";
+    else
+        return "false";
+}
+
+echo func_1(1, 1);
+echo "<br>";
+echo func_1(2, 1);
+
+echo "<br>";
+
+$test = 0;
+echo $test == 0 ? 'верно' : '';
+
+echo "<br>";
+
+function sumNumber($n) {
+    $arr = str_split($n);
+    $sum = 0;
+    for ($i = 0; $i < count($arr); $i++) {
+        $sum += $arr[$i];
+    }
+    return $sum;
+}
+
+$age = 11;
+
+if ($age < 10 || $age > 99)
+    echo "Число меньше 10 и больше 99.";
+else if ($age >= 10 && $age <= 99)
+{
+    echo sumNumber($age);
+    echo "<br>";
+    if (sumNumber($age) <= 9)
+        echo "Cумма цифр однозначна.";
+    else 
+        echo "Cумма цифр двузначна.";
+}
+
+echo "<br>";
+
+$arr = [1, 2, 3];
+if (count($arr) == 3)
+    echo array_sum($arr);
+
 
 
