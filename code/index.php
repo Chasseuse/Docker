@@ -403,5 +403,39 @@ $arr = [1, 2, 3];
 if (count($arr) == 3)
     echo array_sum($arr);
 
+echo "<br>";
+
+for ($i = 1; $i <= 20; $i++) {
+    echo str_repeat('x', $i);
+    echo "<br>";
+}
+
+$arr = [1, 2, 3, 4, 5];
+echo (array_sum($arr) / count($arr));
+
+echo "<br>";
+
+echo array_sum(range(1, 100));
+
+echo "<br>";
+
+print_r(array_map('sqrt', $arr));
+
+echo "<br>";
+
+$key = range('a', 'z');
+$value = range(1, 26);
+$arr10 = array_combine($key, $value);
+print_r($arr10);
+
+echo "<br>";
+
+$string = '1234567890';
+$arr11 = str_split($string); 
+$chunk = array_chunk($arr11, 2); 
+$Union = array_map('implode', $chunk); 
+echo array_sum($Union);
+
+
 
 
