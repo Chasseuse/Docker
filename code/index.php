@@ -1,14 +1,15 @@
-<?php // заголовок php
-$str = 'a1b2c3'; // строка, в которой будем что-то искать
-// число состоит из неизвестного количества цифр
-$regexp = '![0-9]+!'; // регулярное выражение
-/**
- * заменяет в строке str найденные с помощью регулярного выражения regexp и помещает найденное в функцию cube
- */
-echo preg_replace_callback($regexp, 'cube', $str);
-// массив matches - то, что нашлось
-function cube($matches) {
-    // возводим в куб найденное число
-    $result = pow($matches[0], 3);
-    return $result;
-}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab3</title>
+    </head>
+    <body>
+        <form action="save.php" method="get">
+            <textarea name="text" placeholder="Введите текст..."></textarea>
+            <input type="submit">
+        </form>
+    </body>
+</html>
