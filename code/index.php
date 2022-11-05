@@ -1,3 +1,12 @@
+<?php
+session_start();
+echo 'Перейдите на страницу http://php-docker.local:8080/save.php';
+if(!empty($_GET)) {
+    $_SESSION['surname'] = $_GET['surname'];
+    $_SESSION['name'] = $_GET['name'];
+    $_SESSION['age'] = $_GET['age'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,8 +16,10 @@
         <title>lab3</title>
     </head>
     <body>
-        <form action="save.php" method="get">
-            <textarea name="text" placeholder="Введите текст..."></textarea>
+        <form method="GET">
+            <input name="surname" placeholder="Введите фамилию..." required>
+            <input name="name" placeholder="Введите имя..." required>
+            <input name="age" placeholder="Введите возраст..." type="number" required>
             <input type="submit">
         </form>
     </body>

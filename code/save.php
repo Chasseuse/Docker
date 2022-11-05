@@ -1,20 +1,13 @@
 <?php
-// методом GET получили данные, смотрим, записано ли значение
-// в textarea name="text", именно этот "text" и передаём
-if (!empty($_GET['text'])) {
-    // полученная строка, отправленная методом GET
-    $str = $_GET['text'];
-    // считаем количество символов
-    $strLen = strlen($str);
-    // разбиваем сначала строку, считая разделителем пробел, а потом подсчитываем количество слов
-    $wordsCount = count(explode(' ', $str));
-    echo "Количество слов - ";
-    echo $wordsCount;
-    echo ", ";
-    echo "количество символов - ";
-    echo $strLen;
-    echo ".";
-}
-else {
-    echo 'Вы ничего не ввели.';
-}
+    session_start();
+	if (!empty($_SESSION['surname'])) {
+		echo $_SESSION['surname'];
+        echo ' ';
+        echo $_SESSION['name'];
+        echo ' ';
+        echo $_SESSION['age'];
+	}
+    else {
+        echo 'Недостаточно данных.';
+    }
+?>
