@@ -13,15 +13,24 @@ if(false === isset($_POST['email'], $_POST['category'], $_POST['title'], $_POST[
     redirectToHome();
 }
 
+$email = $_POST['email'];
 $category = $_POST['category'];
 $title = $_POST['title'];
 $description = $_POST['description'];
+
+// пропишем сначала путь до папки, так как папка может быть ещё не создана и выскочет ошибка
+$folderPath = "categories/{$category}/{$email}";
+// проверяем существует ли такая папка
+if (false === file_exists($folderPath)) {
+    // создаём папку со всеми правами доступа
+    mkdir("categories/{$category}/{$email}", 0777);
+}
 /**
  * сначала идёт название папки, в которой всё это лежит
  * "" - чтобы использовать переменные
  * затем сама выбранная папка из categories
  */
-$filePath = "categories/{$category}/{$title}.txt";
+$filePath = "categories/{$category}/{$email}/{$title}.txt";
 /**
  * Принимает на вход:
  * 1. имя файла (путь к файлу),
