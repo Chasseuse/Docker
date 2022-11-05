@@ -2,9 +2,7 @@
 session_start();
 echo 'Перейдите на страницу http://php-docker.local:8080/save.php';
 if(!empty($_GET)) {
-    $_SESSION['surname'] = $_GET['surname'];
-    $_SESSION['name'] = $_GET['name'];
-    $_SESSION['age'] = $_GET['age'];
+    $_SESSION['data'] = $_GET;
 }
 ?>
 <!DOCTYPE html>
@@ -17,9 +15,9 @@ if(!empty($_GET)) {
     </head>
     <body>
         <form method="GET">
-            <input name="surname" placeholder="Введите фамилию..." required>
             <input name="name" placeholder="Введите имя..." required>
-            <input name="age" placeholder="Введите возраст..." type="number" required>
+            <input name="age" placeholder="Введите возраст..." required>
+            <input name="salary" placeholder="Введите зарплату..." type="number" required>
             <input type="submit">
         </form>
     </body>

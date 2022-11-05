@@ -1,13 +1,13 @@
 <?php
     session_start();
-	if (!empty($_SESSION['surname'])) {
-		echo $_SESSION['surname'];
-        echo ' ';
-        echo $_SESSION['name'];
-        echo ' ';
-        echo $_SESSION['age'];
+    echo "<ul>";
+	if (!empty($_SESSION['data'])) {
+		foreach($_SESSION['data'] as &$data) {
+            echo "<li>".$data."</li>";
+        }
 	}
     else {
         echo 'Недостаточно данных.';
     }
+    echo "</ul>";
 ?>
