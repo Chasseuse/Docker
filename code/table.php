@@ -33,11 +33,6 @@ $spreadsheetId = '1NDvGt7__LafaThAvk5-PWdCYDh4UGaIk7d3ajcY3xTg';
 
 $service->spreadsheets_values->update($spreadsheetId, $range, $values, $options);
 
-// вытаскиваем данные с таблицы
-$response = $service->spreadsheets_values->get($spreadsheetId, $range);
-
-var_dump($response->getValues());
-
 // указываем путь до папки
 $folders = "categories";
 $categories = scandir($folders);
@@ -103,3 +98,8 @@ foreach($categories as $category) {
         }
     }
 }
+$num_str = $num_str - 1;
+$range = 'A1:D'.$num_str;
+// вытаскиваем данные с таблицы
+$response = $service->spreadsheets_values->get($spreadsheetId, $range);
+var_dump($response->getValues());
