@@ -11,6 +11,7 @@
         }
     ],
     "require": {
+        "ext-mysqli": "*",
         "google/apiclient": "^2.12"
     }
 }

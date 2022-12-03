@@ -13,34 +13,28 @@ if(false === isset($_POST['email'], $_POST['category'], $_POST['title'], $_POST[
     redirectToHome();
 }
 
+// записали данные в переменные
 $email = $_POST['email'];
 $category = $_POST['category'];
 $title = $_POST['title'];
 $description = $_POST['description'];
 
-// пропишем сначала путь до папки, так как папка может быть ещё не создана и выскочет ошибка
-$folderPath = "categories/{$category}/{$email}";
-// проверяем существует ли такая папка
-if (false === file_exists($folderPath)) {
-    // создаём папку со всеми правами доступа
-    mkdir("categories/{$category}/{$email}", 0777);
+# создаём подключение
+# 'db' - имя контейнера, 'root' - указали MYSQL_ROOT_PASSWORD в docker-compose.yml
+# 'helloworld' - пароль, который указан там же, 'web' - имя БД (create database web)
+$mysqli = new mysqli('db', 'root', 'helloworld', 'web');
+
+# подключаемся к БД
+# функция mysqli_connect_errno - возвращает номер ошибки
+if (mysqli_connect_errno()) {
+    printf('Can not connect to mysql server. Error code: %s', mysqli_connect_error());
+    # выходим из приложения
+    exit;
 }
-/**
- * сначала идёт название папки, в которой всё это лежит
- * "" - чтобы использовать переменные
- * затем сама выбранная папка из categories
- */
-$filePath = "categories/{$category}/{$email}/{$title}.txt";
-/**
- * Принимает на вход:
- * 1. имя файла (путь к файлу),
- * 2. содержимое файла.
- * Возвращает: либо int - сколько строк было добавлено, либо false - если не получилось ничего добавить.
- * ===, а не ==, потому что может вернуть 0, а 0 это не будет ошибкой, в отличие от false.
- * Обрабатываем случай, когда что-то идёт не так.
- */
-if (false === file_put_contents($filePath, $description)) {
-    throw new Exception('Something went wrong');
-}
+// запишем теперь полученные данные в таблицу ad
+$query = "INSERT INTO ad (email, title, description, category) VALUES (?, ?, ?, ?)";
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param("ssss", $email, $title, $description, $category);
+$stmt->execute();
 
 redirectToHome();
